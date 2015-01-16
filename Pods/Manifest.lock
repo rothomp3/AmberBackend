@@ -1,0 +1,25 @@
+PODS:
+  - GCDWebServer (3.2.2):
+    - GCDWebServer/Core (= 3.2.2)
+  - GCDWebServer/Core (3.2.2)
+  - GRMustache (7.3.0):
+    - JRSwizzle (~> 1.0)
+  - JRSwizzle (1.0)
+  - WTAData (1.0.0)
+
+DEPENDENCIES:
+  - GCDWebServer
+  - GRMustache
+  - WTAData (from `../WTAData/`)
+
+EXTERNAL SOURCES:
+  WTAData:
+    :path: ../WTAData/
+
+SPEC CHECKSUMS:
+  GCDWebServer: 285fde9951ab2cd87c2d9d74735fee977a16fe04
+  GRMustache: efecd3b603f0a7a99cf6bdf3998782ee0c465726
+  JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
+  WTAData: 4ee2224e98ca37374cbd5092308f766376ef298c
+
+COCOAPODS: 0.36.0.beta.1

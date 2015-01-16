@@ -1,0 +1,18 @@
+{
+  "name": "WTAData",
+  "version": "1.0.0",
+  "summary": "WTAData is a wrapper for CoreData to handle commmon operations associated with managing a CoreData stack",
+  "license": "Proprietary",
+  "authors": {
+    "WillowTree Apps, Inc.": "willowtreeapps.com"
+  },
+  "source": {
+    "git": "https://github.com/willowtreeapps/WTAData.git",
+    "tag": "1.0.0"
+  },
+  "source_files": [
+    "WTAData",
+    "WTAData/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude"
+}
