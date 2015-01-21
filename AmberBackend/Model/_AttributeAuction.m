@@ -12,6 +12,8 @@ const struct AttributeAuctionAttributes AttributeAuctionAttributes = {
 	.enduranceRank = @"enduranceRank",
 	.lineage = @"lineage",
 	.lineageRank = @"lineageRank",
+	.lore = @"lore",
+	.loreRank = @"loreRank",
 	.psyche = @"psyche",
 	.psycheRank = @"psycheRank",
 	.renown = @"renown",
@@ -20,6 +22,7 @@ const struct AttributeAuctionAttributes AttributeAuctionAttributes = {
 	.sorceryRank = @"sorceryRank",
 	.strength = @"strength",
 	.strengthRank = @"strengthRank",
+	.warfare = @"warfare",
 	.warfareRank = @"warfareRank",
 };
 
@@ -93,6 +96,16 @@ const struct AttributeAuctionRelationships AttributeAuctionRelationships = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"loreValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"lore"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"loreRankValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"loreRank"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"psycheValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"psyche"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -130,6 +143,11 @@ const struct AttributeAuctionRelationships AttributeAuctionRelationships = {
 	}
 	if ([key isEqualToString:@"strengthRankValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"strengthRank"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"warfareValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"warfare"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -302,6 +320,46 @@ const struct AttributeAuctionRelationships AttributeAuctionRelationships = {
 	[self setPrimitiveLineageRank:@(value_)];
 }
 
+@dynamic lore;
+
+- (int16_t)loreValue {
+	NSNumber *result = [self lore];
+	return [result shortValue];
+}
+
+- (void)setLoreValue:(int16_t)value_ {
+	[self setLore:@(value_)];
+}
+
+- (int16_t)primitiveLoreValue {
+	NSNumber *result = [self primitiveLore];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveLoreValue:(int16_t)value_ {
+	[self setPrimitiveLore:@(value_)];
+}
+
+@dynamic loreRank;
+
+- (int16_t)loreRankValue {
+	NSNumber *result = [self loreRank];
+	return [result shortValue];
+}
+
+- (void)setLoreRankValue:(int16_t)value_ {
+	[self setLoreRank:@(value_)];
+}
+
+- (int16_t)primitiveLoreRankValue {
+	NSNumber *result = [self primitiveLoreRank];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveLoreRankValue:(int16_t)value_ {
+	[self setPrimitiveLoreRank:@(value_)];
+}
+
 @dynamic psyche;
 
 - (int16_t)psycheValue {
@@ -460,6 +518,26 @@ const struct AttributeAuctionRelationships AttributeAuctionRelationships = {
 
 - (void)setPrimitiveStrengthRankValue:(int16_t)value_ {
 	[self setPrimitiveStrengthRank:@(value_)];
+}
+
+@dynamic warfare;
+
+- (int16_t)warfareValue {
+	NSNumber *result = [self warfare];
+	return [result shortValue];
+}
+
+- (void)setWarfareValue:(int16_t)value_ {
+	[self setWarfare:@(value_)];
+}
+
+- (int16_t)primitiveWarfareValue {
+	NSNumber *result = [self primitiveWarfare];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveWarfareValue:(int16_t)value_ {
+	[self setPrimitiveWarfare:@(value_)];
 }
 
 @dynamic warfareRank;

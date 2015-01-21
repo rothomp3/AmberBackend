@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C99d" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AttributeAuction" representedClassName="AttributeAuction" syncable="YES">
         <attribute name="armies" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="armiesRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -9,6 +9,8 @@
         <attribute name="enduranceRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="lineage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="lineageRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="loreRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="psyche" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="psycheRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="renown" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -17,39 +19,53 @@
         <attribute name="sorceryRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="strength" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="strengthRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="warfare" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="warfareRank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="attributeAuction" inverseEntity="Character" syncable="YES"/>
     </entity>
     <entity name="Character" representedClassName="Character" syncable="YES">
-        <attribute name="attributesTextColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="stuff" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="titles" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attributeAuction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AttributeAuction" inverseName="character" inverseEntity="AttributeAuction" syncable="YES"/>
+        <relationship name="colors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Colors" inverseName="character" inverseEntity="Colors" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="character" inverseEntity="Item" syncable="YES"/>
+        <relationship name="powers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Power" inverseName="characters" inverseEntity="Power" syncable="YES"/>
+    </entity>
+    <entity name="Colors" representedClassName="Colors" syncable="YES">
+        <attribute name="attributesBackgroundColor1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attributesBackgroundColor2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attributesTextColor1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attributesTextColor2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="backgroundImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="backgroundImageFilename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="footerTextColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="headerBackgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="headerShadowColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="headerTextColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headerTextShadowColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainBackgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainShadowColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainTextColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="titles" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="attributeAuction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AttributeAuction" inverseName="character" inverseEntity="AttributeAuction" syncable="YES"/>
-        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="character" inverseEntity="Item" syncable="YES"/>
-        <relationship name="powers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Power" inverseName="characters" inverseEntity="Power" syncable="YES"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="colors" inverseEntity="Character" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pointCost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="points" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="items" inverseEntity="Character" syncable="YES"/>
     </entity>
     <entity name="Power" representedClassName="Power" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pointCost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="points" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="powers" inverseEntity="Character" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-63" positionY="-18" width="128" height="253"/>
-        <element name="AttributeAuction" positionX="-54" positionY="90" width="128" height="313"/>
-        <element name="Power" positionX="-45" positionY="153" width="128" height="88"/>
+        <element name="AttributeAuction" positionX="-54" positionY="90" width="128" height="358"/>
+        <element name="Character" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Colors" positionX="-54" positionY="135" width="128" height="268"/>
         <element name="Item" positionX="-36" positionY="162" width="128" height="88"/>
+        <element name="Power" positionX="-45" positionY="153" width="128" height="88"/>
     </elements>
 </model>

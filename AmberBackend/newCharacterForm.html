@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>%@ Does Not Exist</title>
+</head>
+<body>
+    <form method="POST" id="mainForm">
+        <p>Full Character Name: <input type="text" value="%@" name="characterName"></p>
+        <p>Number of Players + Bidding NPCs: <input type="number" value="7" name="numPlayers" id="numPlayersField"></p>
+        <h2>Attribute Auction Results</h2>
+        <ul id="primaryAttributes">
+        </ul>
+        <script>
+            var list = document.getElementById("primaryAttributes");
+            var attrs = ["Strength", "Psyche", "Endurance", "Warfare", "Sorcery"];
+            var numPlayers = document.getElementById("numPlayersField").value;
+            for (var i = 0; i < attrs.length; i++)
+            {
+                var attr = attrs[i];
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(attr));
+                var select = document.createElement("select");
+                select.setAttribute("name", attr.toLocaleLowerCase() + "Rank");
+                for (var j = 1; j <= numPlayers; j++)
+                {
+                    var option = document.createElement("option");
+                    option.setAttribute("value", j);
+                    var sup = document.createElement("sup");
+                    option.appendChild(document.createTextNode(j.toString()));
+
+                    switch (j)
+                    {
+                        case 1:
+                            sup.appendChild(document.createTextNode("st"));
+                            break;
+
+                        case 2:
+                            sup.appendChild(document.createTextNode("nd"));
+                            break;
+
+                        case 3:
+                            sup.appendChild(document.createTextNode("rd"));
+                            break;
+
+                        default:
+                            sup.appendChild(document.createTextNode("th"));
+                            break;
+                    }
+
+                    option.appendChild(sup);
+
+                    select.appendChild(option);
+                }
+
+                var option = document.createElement("option");
+                option.setAttribute("value", 0);
+                option.appendChild(document.createTextNode("Amber"));
+                select.appendChild(option);
+
+                var option = document.createElement("option");
+                option.setAttribute("value", -1);
+                option.appendChild(document.createTextNode("Demon"));
+                select.appendChild(option);
+
+                option = document.createElement("option");
+                option.setAttribute("value", -2);
+                option.appendChild(document.createTextNode("Chaos"));
+                select.appendChild(option);
+
+                option = document.createElement("option");
+                option.setAttribute("value", -3);
+                option.appendChild(document.createTextNode("Hero"));
+                select.appendChild(option);
+
+                option = document.createElement("option");
+                option.setAttribute("value", -4);
+                option.appendChild(document.createTextNode("Human"));
+                select.appendChild(option);
+
+                option = document.createElement("option");
+                option.setAttribute("value", -10);
+                option.appendChild(document.createTextNode("Unknown"));
+                select.appendChild(option);
+
+                li.appendChild(select);
+                list.appendChild(li);
+            }
+        </script>
+        <input type="submit" name="Submit" value="Submit">
+    </form>
+</body>
+</html>

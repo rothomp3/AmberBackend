@@ -25,6 +25,14 @@
 		E142F0BA1A698C80007D4F1A /* AmberTemplate.html.ms in Copy Resources */ = {isa = PBXBuildFile; fileRef = E142F0B71A698C6D007D4F1A /* AmberTemplate.html.ms */; };
 		E142F0BB1A698C80007D4F1A /* Trevor.json in Copy Resources */ = {isa = PBXBuildFile; fileRef = E142F0B81A698C6D007D4F1A /* Trevor.json */; };
 		E142F0BD1A698D9E007D4F1A /* Info.plist in Copy Resources */ = {isa = PBXBuildFile; fileRef = E142F0BC1A698D4A007D4F1A /* Info.plist */; };
+		E142F0C21A6990D1007D4F1A /* _Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = E142F0BF1A6990D1007D4F1A /* _Colors.m */; };
+		E142F0C31A6990D1007D4F1A /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = E142F0C11A6990D1007D4F1A /* Colors.m */; };
+		E142F0C71A699405007D4F1A /* convertToCamelCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142F0C61A699405007D4F1A /* convertToCamelCase.swift */; };
+		E142F0CA1A69A19A007D4F1A /* NSManagedObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E142F0C91A69A19A007D4F1A /* NSManagedObject+JSON.m */; };
+		E142F0CC1A69B28F007D4F1A /* bark.jpg in Copy Resources */ = {isa = PBXBuildFile; fileRef = E142F0CB1A69A8BB007D4F1A /* bark.jpg */; };
+		E142F0CE1A69C01F007D4F1A /* newCharacterForm.html in Copy Resources */ = {isa = PBXBuildFile; fileRef = E142F0CD1A69C017007D4F1A /* newCharacterForm.html */; };
+		E142F0D01A69CA6C007D4F1A /* FormGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142F0CF1A69CA6C007D4F1A /* FormGenerator.swift */; };
+		E1707C531A6FFED1007D4F1A /* Trevor.jpg in Copy Resources */ = {isa = PBXBuildFile; fileRef = E1707C521A6FFE3A007D4F1A /* Trevor.jpg */; };
 		E1F6AC8D1A686448007D4F1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F6AC8C1A686448007D4F1A /* main.m */; };
 		E1F6AC951A687D91007D4F1A /* AmberBackendModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1F6AC931A687D91007D4F1A /* AmberBackendModel.xcdatamodeld */; };
 		E1F6ACAC1A68806E007D4F1A /* _AttributeAuction.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F6AC9D1A68806E007D4F1A /* _AttributeAuction.m */; };
@@ -45,6 +53,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				E1707C531A6FFED1007D4F1A /* Trevor.jpg in Copy Resources */,
+				E142F0CE1A69C01F007D4F1A /* newCharacterForm.html in Copy Resources */,
+				E142F0CC1A69B28F007D4F1A /* bark.jpg in Copy Resources */,
 				E142F0BD1A698D9E007D4F1A /* Info.plist in Copy Resources */,
 				E142F0BA1A698C80007D4F1A /* AmberTemplate.html.ms in Copy Resources */,
 				E142F0BB1A698C80007D4F1A /* Trevor.json in Copy Resources */,
@@ -70,6 +81,19 @@
 		E142F0B71A698C6D007D4F1A /* AmberTemplate.html.ms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AmberTemplate.html.ms; sourceTree = "<group>"; };
 		E142F0B81A698C6D007D4F1A /* Trevor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trevor.json; sourceTree = "<group>"; };
 		E142F0BC1A698D4A007D4F1A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E142F0BE1A6990D1007D4F1A /* _Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Colors.h; sourceTree = "<group>"; };
+		E142F0BF1A6990D1007D4F1A /* _Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Colors.m; sourceTree = "<group>"; };
+		E142F0C01A6990D1007D4F1A /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		E142F0C11A6990D1007D4F1A /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		E142F0C41A699200007D4F1A /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		E142F0C51A699405007D4F1A /* AmberBackend-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AmberBackend-Bridging-Header.h"; sourceTree = "<group>"; };
+		E142F0C61A699405007D4F1A /* convertToCamelCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convertToCamelCase.swift; sourceTree = "<group>"; };
+		E142F0C81A69A19A007D4F1A /* NSManagedObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+JSON.h"; sourceTree = "<group>"; };
+		E142F0C91A69A19A007D4F1A /* NSManagedObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+JSON.m"; sourceTree = "<group>"; };
+		E142F0CB1A69A8BB007D4F1A /* bark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bark.jpg; sourceTree = "<group>"; };
+		E142F0CD1A69C017007D4F1A /* newCharacterForm.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = newCharacterForm.html; sourceTree = "<group>"; };
+		E142F0CF1A69CA6C007D4F1A /* FormGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormGenerator.swift; sourceTree = "<group>"; };
+		E1707C521A6FFE3A007D4F1A /* Trevor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Trevor.jpg; sourceTree = "<group>"; };
 		E1F6AC891A686447007D4F1A /* AmberBackend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AmberBackend; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F6AC8C1A686448007D4F1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1F6AC941A687D91007D4F1A /* AmberBackendModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AmberBackendModel.xcdatamodel; sourceTree = "<group>"; };
@@ -125,8 +149,11 @@
 		E142F0B91A698C72007D4F1A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E142F0CD1A69C017007D4F1A /* newCharacterForm.html */,
 				E142F0B71A698C6D007D4F1A /* AmberTemplate.html.ms */,
+				E142F0CB1A69A8BB007D4F1A /* bark.jpg */,
 				E142F0B81A698C6D007D4F1A /* Trevor.json */,
+				E1707C521A6FFE3A007D4F1A /* Trevor.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -155,10 +182,13 @@
 				E142F0B91A698C72007D4F1A /* Resources */,
 				E1F6AC9B1A68806E007D4F1A /* Model */,
 				E1F6AC8C1A686448007D4F1A /* main.m */,
+				E142F0CF1A69CA6C007D4F1A /* FormGenerator.swift */,
+				E142F0C61A699405007D4F1A /* convertToCamelCase.swift */,
 				E1F6AC931A687D91007D4F1A /* AmberBackendModel.xcdatamodeld */,
 				UJDV287QBL7U8EAEGYBDU54W /* DataController.h */,
 				G8A2RE6OZVEE3Q17BPCQ4M7R /* DataController.m */,
 				E142F0BC1A698D4A007D4F1A /* Info.plist */,
+				E142F0C51A699405007D4F1A /* AmberBackend-Bridging-Header.h */,
 			);
 			path = AmberBackend;
 			sourceTree = "<group>";
@@ -166,6 +196,11 @@
 		E1F6AC9B1A68806E007D4F1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E142F0C41A699200007D4F1A /* Model.h */,
+				E142F0BE1A6990D1007D4F1A /* _Colors.h */,
+				E142F0BF1A6990D1007D4F1A /* _Colors.m */,
+				E142F0C01A6990D1007D4F1A /* Colors.h */,
+				E142F0C11A6990D1007D4F1A /* Colors.m */,
 				E1F6AC9C1A68806E007D4F1A /* _AttributeAuction.h */,
 				E1F6AC9D1A68806E007D4F1A /* _AttributeAuction.m */,
 				E1F6AC9E1A68806E007D4F1A /* _Character.h */,
@@ -182,6 +217,8 @@
 				E1F6ACA91A68806E007D4F1A /* Item.m */,
 				E1F6ACAA1A68806E007D4F1A /* Power.h */,
 				E1F6ACAB1A68806E007D4F1A /* Power.m */,
+				E142F0C81A69A19A007D4F1A /* NSManagedObject+JSON.h */,
+				E142F0C91A69A19A007D4F1A /* NSManagedObject+JSON.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,7 +339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/mogenerator --v2 --model AmberBackend/AmberBackendModel.xcdatamodeld --output-dir AmberBackend/Model";
+			shellScript = "/usr/local/bin/mogenerator --v2 --model AmberBackend/AmberBackendModel.xcdatamodeld --output-dir AmberBackend/Model --includeh \"AmberBackend/Model/Model.h\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -311,11 +348,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E142F0C31A6990D1007D4F1A /* Colors.m in Sources */,
 				E1F6ACB21A68806E007D4F1A /* Item.m in Sources */,
+				E142F0C21A6990D1007D4F1A /* _Colors.m in Sources */,
+				E142F0C71A699405007D4F1A /* convertToCamelCase.swift in Sources */,
 				E1F6AC951A687D91007D4F1A /* AmberBackendModel.xcdatamodeld in Sources */,
 				E1F6AC8D1A686448007D4F1A /* main.m in Sources */,
+				E142F0CA1A69A19A007D4F1A /* NSManagedObject+JSON.m in Sources */,
 				E1F6ACB01A68806E007D4F1A /* AttributeAuction.m in Sources */,
 				E1F6ACB11A68806E007D4F1A /* Character.m in Sources */,
+				E142F0D01A69CA6C007D4F1A /* FormGenerator.swift in Sources */,
 				E1F6ACAC1A68806E007D4F1A /* _AttributeAuction.m in Sources */,
 				E1F6ACAF1A68806E007D4F1A /* _Power.m in Sources */,
 				E1F6ACAE1A68806E007D4F1A /* _Item.m in Sources */,
@@ -406,7 +448,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A53C10420E293D95EE834F2B /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AmberBackend/AmberBackend-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -414,7 +460,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9956C6E6886D6C9D10531897 /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AmberBackend/AmberBackend-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -1,5 +1,5 @@
 #import "_AttributeAuction.h"
 
 @interface AttributeAuction : _AttributeAuction {}
-// Custom logic goes here.
+@property (strong, nonatomic, readonly) NSDictionary* JSON;
 @end

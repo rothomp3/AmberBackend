@@ -4,26 +4,22 @@
 @import CoreData;
 
 extern const struct CharacterAttributes {
-	__unsafe_unretained NSString *attributesTextColor;
-	__unsafe_unretained NSString *backgroundImageFilename;
-	__unsafe_unretained NSString *footerTextColor;
-	__unsafe_unretained NSString *headerBackgroundColor;
-	__unsafe_unretained NSString *headerShadowColor;
-	__unsafe_unretained NSString *headerTextColor;
-	__unsafe_unretained NSString *mainBackgroundColor;
-	__unsafe_unretained NSString *mainShadowColor;
-	__unsafe_unretained NSString *mainTextColor;
-	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *bio;
+	__unsafe_unretained NSString *characterName;
+	__unsafe_unretained NSString *image;
+	__unsafe_unretained NSString *stuff;
 	__unsafe_unretained NSString *titles;
 } CharacterAttributes;
 
 extern const struct CharacterRelationships {
 	__unsafe_unretained NSString *attributeAuction;
+	__unsafe_unretained NSString *colors;
 	__unsafe_unretained NSString *items;
 	__unsafe_unretained NSString *powers;
 } CharacterRelationships;
 
 @class AttributeAuction;
+@class Colors;
 @class Item;
 @class Power;
 
@@ -36,45 +32,25 @@ extern const struct CharacterRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) CharacterID* objectID;
 
-@property (nonatomic, strong) NSString* attributesTextColor;
+@property (nonatomic, strong) NSString* bio;
 
-//- (BOOL)validateAttributesTextColor:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateBio:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* backgroundImageFilename;
+@property (nonatomic, strong) NSString* characterName;
 
-//- (BOOL)validateBackgroundImageFilename:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateCharacterName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* footerTextColor;
+@property (nonatomic, strong) NSData* image;
 
-//- (BOOL)validateFooterTextColor:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateImage:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* headerBackgroundColor;
+@property (nonatomic, strong) NSNumber* stuff;
 
-//- (BOOL)validateHeaderBackgroundColor:(id*)value_ error:(NSError**)error_;
+@property (atomic) int16_t stuffValue;
+- (int16_t)stuffValue;
+- (void)setStuffValue:(int16_t)value_;
 
-@property (nonatomic, strong) NSString* headerShadowColor;
-
-//- (BOOL)validateHeaderShadowColor:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* headerTextColor;
-
-//- (BOOL)validateHeaderTextColor:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* mainBackgroundColor;
-
-//- (BOOL)validateMainBackgroundColor:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* mainShadowColor;
-
-//- (BOOL)validateMainShadowColor:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* mainTextColor;
-
-//- (BOOL)validateMainTextColor:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateStuff:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* titles;
 
@@ -84,13 +60,25 @@ extern const struct CharacterRelationships {
 
 //- (BOOL)validateAttributeAuction:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) Item *items;
+@property (nonatomic, strong) Colors *colors;
 
-//- (BOOL)validateItems:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateColors:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSSet *items;
+
+- (NSMutableSet*)itemsSet;
 
 @property (nonatomic, strong) NSSet *powers;
 
 - (NSMutableSet*)powersSet;
+
+@end
+
+@interface _Character (ItemsCoreDataGeneratedAccessors)
+- (void)addItems:(NSSet*)value_;
+- (void)removeItems:(NSSet*)value_;
+- (void)addItemsObject:(Item*)value_;
+- (void)removeItemsObject:(Item*)value_;
 
 @end
 
@@ -104,35 +92,20 @@ extern const struct CharacterRelationships {
 
 @interface _Character (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString*)primitiveAttributesTextColor;
-- (void)setPrimitiveAttributesTextColor:(NSString*)value;
+- (NSString*)primitiveBio;
+- (void)setPrimitiveBio:(NSString*)value;
 
-- (NSString*)primitiveBackgroundImageFilename;
-- (void)setPrimitiveBackgroundImageFilename:(NSString*)value;
+- (NSString*)primitiveCharacterName;
+- (void)setPrimitiveCharacterName:(NSString*)value;
 
-- (NSString*)primitiveFooterTextColor;
-- (void)setPrimitiveFooterTextColor:(NSString*)value;
+- (NSData*)primitiveImage;
+- (void)setPrimitiveImage:(NSData*)value;
 
-- (NSString*)primitiveHeaderBackgroundColor;
-- (void)setPrimitiveHeaderBackgroundColor:(NSString*)value;
+- (NSNumber*)primitiveStuff;
+- (void)setPrimitiveStuff:(NSNumber*)value;
 
-- (NSString*)primitiveHeaderShadowColor;
-- (void)setPrimitiveHeaderShadowColor:(NSString*)value;
-
-- (NSString*)primitiveHeaderTextColor;
-- (void)setPrimitiveHeaderTextColor:(NSString*)value;
-
-- (NSString*)primitiveMainBackgroundColor;
-- (void)setPrimitiveMainBackgroundColor:(NSString*)value;
-
-- (NSString*)primitiveMainShadowColor;
-- (void)setPrimitiveMainShadowColor:(NSString*)value;
-
-- (NSString*)primitiveMainTextColor;
-- (void)setPrimitiveMainTextColor:(NSString*)value;
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
+- (int16_t)primitiveStuffValue;
+- (void)setPrimitiveStuffValue:(int16_t)value_;
 
 - (NSString*)primitiveTitles;
 - (void)setPrimitiveTitles:(NSString*)value;
@@ -140,8 +113,11 @@ extern const struct CharacterRelationships {
 - (AttributeAuction*)primitiveAttributeAuction;
 - (void)setPrimitiveAttributeAuction:(AttributeAuction*)value;
 
-- (Item*)primitiveItems;
-- (void)setPrimitiveItems:(Item*)value;
+- (Colors*)primitiveColors;
+- (void)setPrimitiveColors:(Colors*)value;
+
+- (NSMutableSet*)primitiveItems;
+- (void)setPrimitiveItems:(NSMutableSet*)value;
 
 - (NSMutableSet*)primitivePowers;
 - (void)setPrimitivePowers:(NSMutableSet*)value;

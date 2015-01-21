@@ -5,7 +5,7 @@
 
 extern const struct ItemAttributes {
 	__unsafe_unretained NSString *name;
-	__unsafe_unretained NSString *pointCost;
+	__unsafe_unretained NSString *points;
 } ItemAttributes;
 
 extern const struct ItemRelationships {
@@ -27,13 +27,13 @@ extern const struct ItemRelationships {
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSNumber* pointCost;
+@property (nonatomic, strong) NSNumber* points;
 
-@property (atomic) int16_t pointCostValue;
-- (int16_t)pointCostValue;
-- (void)setPointCostValue:(int16_t)value_;
+@property (atomic) int16_t pointsValue;
+- (int16_t)pointsValue;
+- (void)setPointsValue:(int16_t)value_;
 
-//- (BOOL)validatePointCost:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validatePoints:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) Character *character;
 
@@ -46,11 +46,11 @@ extern const struct ItemRelationships {
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
-- (NSNumber*)primitivePointCost;
-- (void)setPrimitivePointCost:(NSNumber*)value;
+- (NSNumber*)primitivePoints;
+- (void)setPrimitivePoints:(NSNumber*)value;
 
-- (int16_t)primitivePointCostValue;
-- (void)setPrimitivePointCostValue:(int16_t)value_;
+- (int16_t)primitivePointsValue;
+- (void)setPrimitivePointsValue:(int16_t)value_;
 
 - (Character*)primitiveCharacter;
 - (void)setPrimitiveCharacter:(Character*)value;

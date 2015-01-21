@@ -1,5 +1,5 @@
 #import "_Character.h"
 
 @interface Character : _Character {}
-// Custom logic goes here.
+@property (strong, nonatomic, readonly) NSDictionary* JSON;
 @end

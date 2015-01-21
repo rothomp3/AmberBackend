@@ -12,6 +12,8 @@ extern const struct AttributeAuctionAttributes {
 	__unsafe_unretained NSString *enduranceRank;
 	__unsafe_unretained NSString *lineage;
 	__unsafe_unretained NSString *lineageRank;
+	__unsafe_unretained NSString *lore;
+	__unsafe_unretained NSString *loreRank;
 	__unsafe_unretained NSString *psyche;
 	__unsafe_unretained NSString *psycheRank;
 	__unsafe_unretained NSString *renown;
@@ -20,6 +22,7 @@ extern const struct AttributeAuctionAttributes {
 	__unsafe_unretained NSString *sorceryRank;
 	__unsafe_unretained NSString *strength;
 	__unsafe_unretained NSString *strengthRank;
+	__unsafe_unretained NSString *warfare;
 	__unsafe_unretained NSString *warfareRank;
 } AttributeAuctionAttributes;
 
@@ -102,6 +105,22 @@ extern const struct AttributeAuctionRelationships {
 
 //- (BOOL)validateLineageRank:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* lore;
+
+@property (atomic) int16_t loreValue;
+- (int16_t)loreValue;
+- (void)setLoreValue:(int16_t)value_;
+
+//- (BOOL)validateLore:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* loreRank;
+
+@property (atomic) int16_t loreRankValue;
+- (int16_t)loreRankValue;
+- (void)setLoreRankValue:(int16_t)value_;
+
+//- (BOOL)validateLoreRank:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSNumber* psyche;
 
 @property (atomic) int16_t psycheValue;
@@ -165,6 +184,14 @@ extern const struct AttributeAuctionRelationships {
 - (void)setStrengthRankValue:(int16_t)value_;
 
 //- (BOOL)validateStrengthRank:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* warfare;
+
+@property (atomic) int16_t warfareValue;
+- (int16_t)warfareValue;
+- (void)setWarfareValue:(int16_t)value_;
+
+//- (BOOL)validateWarfare:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* warfareRank;
 
@@ -230,6 +257,18 @@ extern const struct AttributeAuctionRelationships {
 - (int16_t)primitiveLineageRankValue;
 - (void)setPrimitiveLineageRankValue:(int16_t)value_;
 
+- (NSNumber*)primitiveLore;
+- (void)setPrimitiveLore:(NSNumber*)value;
+
+- (int16_t)primitiveLoreValue;
+- (void)setPrimitiveLoreValue:(int16_t)value_;
+
+- (NSNumber*)primitiveLoreRank;
+- (void)setPrimitiveLoreRank:(NSNumber*)value;
+
+- (int16_t)primitiveLoreRankValue;
+- (void)setPrimitiveLoreRankValue:(int16_t)value_;
+
 - (NSNumber*)primitivePsyche;
 - (void)setPrimitivePsyche:(NSNumber*)value;
 
@@ -277,6 +316,12 @@ extern const struct AttributeAuctionRelationships {
 
 - (int16_t)primitiveStrengthRankValue;
 - (void)setPrimitiveStrengthRankValue:(int16_t)value_;
+
+- (NSNumber*)primitiveWarfare;
+- (void)setPrimitiveWarfare:(NSNumber*)value;
+
+- (int16_t)primitiveWarfareValue;
+- (void)setPrimitiveWarfareValue:(int16_t)value_;
 
 - (NSNumber*)primitiveWarfareRank;
 - (void)setPrimitiveWarfareRank:(NSNumber*)value;

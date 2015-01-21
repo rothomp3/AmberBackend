@@ -5,7 +5,7 @@
 
 const struct PowerAttributes PowerAttributes = {
 	.name = @"name",
-	.pointCost = @"pointCost",
+	.points = @"points",
 };
 
 const struct PowerRelationships PowerRelationships = {
@@ -38,8 +38,8 @@ const struct PowerRelationships PowerRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"pointCostValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"pointCost"];
+	if ([key isEqualToString:@"pointsValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"points"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -49,24 +49,24 @@ const struct PowerRelationships PowerRelationships = {
 
 @dynamic name;
 
-@dynamic pointCost;
+@dynamic points;
 
-- (int16_t)pointCostValue {
-	NSNumber *result = [self pointCost];
+- (int16_t)pointsValue {
+	NSNumber *result = [self points];
 	return [result shortValue];
 }
 
-- (void)setPointCostValue:(int16_t)value_ {
-	[self setPointCost:@(value_)];
+- (void)setPointsValue:(int16_t)value_ {
+	[self setPoints:@(value_)];
 }
 
-- (int16_t)primitivePointCostValue {
-	NSNumber *result = [self primitivePointCost];
+- (int16_t)primitivePointsValue {
+	NSNumber *result = [self primitivePoints];
 	return [result shortValue];
 }
 
-- (void)setPrimitivePointCostValue:(int16_t)value_ {
-	[self setPrimitivePointCost:@(value_)];
+- (void)setPrimitivePointsValue:(int16_t)value_ {
+	[self setPrimitivePoints:@(value_)];
 }
 
 @dynamic characters;

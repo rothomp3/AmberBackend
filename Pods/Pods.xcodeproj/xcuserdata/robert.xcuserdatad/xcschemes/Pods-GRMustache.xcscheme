@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0EA9B1EFA9BA1262118AEB5"
+               BlueprintIdentifier = "A3CEFA598D577A4C9C92BA24"
                BuildableName = "GRMustache.framework"
                BlueprintName = "Pods-GRMustache"
                ReferencedContainer = "container:Pods.xcodeproj">
