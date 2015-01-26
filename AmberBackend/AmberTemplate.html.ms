@@ -131,7 +131,7 @@
 
         #Attributes {
             -webkit-flex: 1 1 33%;
-            flex: 1 1 33.3%;
+            flex: 1 1 33%;
             -webkit-order: 1;
             order: 1;
             border-right-width: 1px;
@@ -142,7 +142,7 @@
 
         #Powers {
             -webkit-flex: 1 1 33%;
-            flex: 1 1 33.3%;
+            flex: 1 1 33%;
             -webkit-order: 2;
             order: 2;
             padding-left: 10px;
@@ -207,7 +207,7 @@
 
             padding-left: 5px;
             padding-right: 5px;
-            /*width: 25%;*/
+            width: 25%;
         }
 
         #characterImg {

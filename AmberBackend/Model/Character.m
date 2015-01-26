@@ -18,8 +18,16 @@
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     
     dict[@"character_name"] = self.characterName;
-    dict[@"character_titles"] = self.titles;
-    dict[@"stuff"] = self.stuff;
+    if (self.titles)
+    {
+        dict[@"character_titles"] = self.titles;
+    }
+    
+    if (self.stuff)
+    {
+        dict[@"stuff"] = self.stuff;
+    }
+    
     NSString* stuffType = nil;
     if (self.stuffValue > 0)
     {
@@ -36,8 +44,15 @@
     
     dict[@"stuff_type"] = stuffType;
     
-    dict[@"attributeAuction"] = self.attributeAuction.JSON;
-    dict[@"colors"] = self.colors.JSON;
+    if (self.attributeAuction)
+    {
+        dict[@"attributeAuction"] = self.attributeAuction.JSON;
+    }
+    
+    if (self.colors)
+    {
+        dict[@"colors"] = self.colors.JSON;
+    }
     
     NSMutableArray* items = [NSMutableArray array];
     for (Item* item in self.items)
@@ -53,7 +68,10 @@
     }
     dict[@"powers"] = powers;
     
-    dict[@"bio"] = self.bio;
+    if (self.bio)
+    {
+        dict[@"bio"] = self.bio;
+    }
     
     if (self.image)
     {
@@ -61,7 +79,12 @@
         NSString* resultString = [NSString stringWithFormat:@"data:image/jpeg;base64,%@", imageString];
         dict[@"image"] = resultString;
     }
+    
     return dict;
 }
 
+- (NSString *)description
+{
+    return self.JSON.description;
+}
 @end

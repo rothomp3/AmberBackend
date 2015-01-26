@@ -11,7 +11,7 @@
 
 #import "GCDWebServer.h"
 #import "GCDWebServerDataResponse.h"
-#import "GCDWebServerURLEncodedFormRequest.h"
+#import "GCDWebServerMultiPartFormRequest.h"
 #import "GRMustache.h"
 #import "DataController.h"
 #import "WTAData.h"
@@ -127,7 +127,6 @@ int main(int argc, const char * argv[]) {
             
             [mainContext save:nil];
         }
-        NSLog(@"%@", trevor);
         
         GCDWebServer* webServer = [[GCDWebServer alloc] init];
         
@@ -168,13 +167,59 @@ int main(int argc, const char * argv[]) {
         
         [webServer addHandlerForMethod:@"POST"
                                   pathRegex:@"/[a-zA-Z].*"
-                          requestClass:[GCDWebServerURLEncodedFormRequest class]
+                          requestClass:[GCDWebServerMultiPartFormRequest class]
                      asyncProcessBlock:^(GCDWebServerRequest *request, GCDWebServerCompletionBlock completionBlock) {
-                         NSDictionary* arguments = [(GCDWebServerURLEncodedFormRequest*)request arguments];
-                         NSString* name = arguments[@"characterName"];
-                         NSNumber* strengthRank = [formatter numberFromString: arguments[@"strengthRank"]];
-                         NSString* html = [NSString stringWithFormat:@"<html><body><p>%@</p><p>%@</p></body></html>", name, strengthRank];
-                         completionBlock([GCDWebServerDataResponse responseWithHTML:html]);
+                         GCDWebServerMultiPartFormRequest* form = (GCDWebServerMultiPartFormRequest*)request;
+                         NSString* name = [form firstArgumentForControlName:@"characterName"].string;
+                         NSArray* ranks = [[form.arguments filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                             GCDWebServerMultiPartArgument* argument = evaluatedObject;
+                             return [argument.controlName containsString:@"Rank"];
+                         }]] valueForKeyPath:@"controlName"];
+                         
+                         NSArray* colors = [[form.arguments filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                             GCDWebServerMultiPartArgument* argument = evaluatedObject;
+                             return [argument.controlName containsString:@"Color"];
+                         }]] valueForKeyPath:@"controlName"];
+                         
+                         NSManagedObjectContext* context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+                         context.parentContext = [[DataController sharedController] backgroundContext];
+                         
+                         [context performBlock:^{
+                             Character* character = [Character createEntityInContext:context];
+                             character.characterName = name;
+                             
+                             character.titles = [form firstArgumentForControlName:@"characterTitles"].string;
+                             AttributeAuction* auction = [AttributeAuction createEntityInContext:context];
+                             
+                             for (NSString* key in ranks)
+                             {
+                                 [auction setValue:[formatter numberFromString:[form firstArgumentForControlName:key].string] forKey:key];
+                             }
+                             character.attributeAuction = auction;
+                             
+                             character.bio = [form firstArgumentForControlName:@"bio"].string;
+                             
+                             character.colors = [Colors createEntityInContext:context];
+                             
+                             character.colors.backgroundImage = [NSData dataWithContentsOfFile:[form firstFileForControlName:@"backgroundImage"].temporaryPath];
+                             character.image = [NSData dataWithContentsOfFile:[form firstFileForControlName:@"characterImage"].temporaryPath];
+                             
+                             for (NSString* control in colors)
+                             {
+                                 [character.colors setValue:[form firstArgumentForControlName:control].string forKey:control];
+                             }
+                             
+                             GCDWebServerDataResponse* response = [GCDWebServerDataResponse responseWithStatusCode:303];
+                             [response setValue:[NSString stringWithFormat:@"%@", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]
+                            forAdditionalHeader:@"Location"];
+                             
+                             completionBlock(response);
+                             
+                             [context save:nil];
+                             [context.parentContext performBlock:^{
+                                 [context.parentContext save:nil];
+                             }];
+                         }];
                      }];
         
         [webServer startWithPort:8081 bonjourName:@"amberBackend"];

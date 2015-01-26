@@ -31,10 +31,15 @@
         if (![key isEqualToString:@"backgroundImage"] && ![key isEqualToString:@"backgroundImageFilename"])
         {
             id value = [self valueForKey:key];
+            NSString* realKey = [self convertKey:key];
+
             if (value)
             {
-                NSString* realKey = [self convertKey:key];
                 dict[realKey] = value;
+            }
+            else
+            {
+                dict[realKey] = @"default";
             }
         }
         else

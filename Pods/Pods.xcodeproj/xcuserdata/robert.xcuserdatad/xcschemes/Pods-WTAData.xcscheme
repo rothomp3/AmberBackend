@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1383D00274A23FB43CB72F8"
+               BlueprintIdentifier = "5AF837CA46020CB985E83D4D"
                BuildableName = "WTAData.framework"
                BlueprintName = "Pods-WTAData"
                ReferencedContainer = "container:Pods.xcodeproj">

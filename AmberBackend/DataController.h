@@ -6,9 +6,10 @@
 @import Foundation;
 @import CoreData;
 
-@interface DataController : NSObject
+#import "WTAData.h"
+
+@interface DataController : WTAData
 + (DataController*)sharedController;
 
-@property (strong, nonatomic, readonly) NSManagedObjectContext* mainContext;
 
 @end

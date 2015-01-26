@@ -2,92 +2,228 @@
 <html>
 <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>%@ Does Not Exist</title>
+    <style>
+        input.textField {
+            width: 300px;
+        }
+
+        #infoSets {
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-flex-flow: row;
+            flex-flow: row;
+        }
+
+        #colorSet {
+            -webkit-flex: none;
+            flex: none;
+
+            -webkit-order: 1;
+            order: 1;
+        }
+
+        #imagesAndBio {
+            -webkit-flex: none;
+            flex: none;
+
+            -webkit-order: 2;
+            order: 2;
+
+            -webkit-flex-flow: column;
+            flex-flow: column;
+
+            -webkit-flex-direction: column;
+            flex-direction: column;
+
+            height: 100%;
+        }
+
+        #imagesSet {
+            -webkit-flex: 0 0 25%;
+            flex: 0 0 25%;
+
+            -webkit-order: 1;
+            order: 1;
+
+            height: 25%;
+
+        }
+
+        #bioSet {
+            -webkit-flex: 0 0 75%;
+            flex: 0 0 75%;
+
+            -webkit-order: 2;
+            order: 2;
+
+            height: 75%;
+        }
+
+        #bioField {
+            -webkit-flex: 1 1 100%;
+            flex: 1 1 100%;
+
+            -webkit-order: 1;
+            order: 1;
+
+            width: 100%;
+            height: 95%;
+        }
+
+        #auctionDiv fieldset {
+            display: inline-block;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <form method="POST" id="mainForm">
-        <p>Full Character Name: <input type="text" value="%@" name="characterName"></p>
+    <form method="POST" id="mainForm" enctype="multipart/form-data" target="_top">
+        <p>Full Character Name: <input type="text" value="%@" name="characterName" class="textField"></p>
+        <p>Character Titles: <input autofocus="autofocus" type="text" name="characterTitles" class="textField"></p>
         <p>Number of Players + Bidding NPCs: <input type="number" value="7" name="numPlayers" id="numPlayersField"></p>
-        <h2>Attribute Auction Results</h2>
-        <ul id="primaryAttributes">
-        </ul>
+        <div id="auctionDiv">
+            <h2>Attribute Auction Results</h2>
+            <fieldset id="primarySet">
+                <legend>Primary</legend>
+                <table id="primaryAttributes">
+                </table>
+            </fieldset>
+            <fieldset id="secondarySet">
+                <legend>Secondary</legend>
+                <table id="secondaryAttributes">
+                </table>
+            </fieldset>
+        </div>
         <script>
             var list = document.getElementById("primaryAttributes");
             var attrs = ["Strength", "Psyche", "Endurance", "Warfare", "Sorcery"];
             var numPlayers = document.getElementById("numPlayersField").value;
-            for (var i = 0; i < attrs.length; i++)
-            {
-                var attr = attrs[i];
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(attr));
-                var select = document.createElement("select");
-                select.setAttribute("name", attr.toLocaleLowerCase() + "Rank");
-                for (var j = 1; j <= numPlayers; j++)
+
+            function fillOutList(attrs, list) {
+                for (var i = 0; i < attrs.length; i++)
                 {
-                    var option = document.createElement("option");
-                    option.setAttribute("value", j);
-                    var sup = document.createElement("sup");
-                    option.appendChild(document.createTextNode(j.toString()));
+                    var attr = attrs[i];
+                    var tr = document.createElement("tr");
+                    var td = document.createElement("td");
+                    td.appendChild(document.createTextNode(attr + ":"));
+                    tr.appendChild(td);
 
-                    switch (j)
+                    td = document.createElement("td");
+                    var select = document.createElement("select");
+                    td.appendChild(select);
+                    tr.appendChild(td);
+                    select.setAttribute("name", attr.toLocaleLowerCase() + "Rank");
+
+                    for (var j = 1; j <= numPlayers; j++)
                     {
-                        case 1:
-                            sup.appendChild(document.createTextNode("st"));
-                            break;
+                        var option = document.createElement("option");
+                        option.setAttribute("value", j);
+                        var suffix = "";
 
-                        case 2:
-                            sup.appendChild(document.createTextNode("nd"));
-                            break;
+                        switch (j)
+                        {
+                            case 1:
+                                suffix = "st";
+                                break;
 
-                        case 3:
-                            sup.appendChild(document.createTextNode("rd"));
-                            break;
+                            case 2:
+                                suffix = "nd";
+                                break;
 
-                        default:
-                            sup.appendChild(document.createTextNode("th"));
-                            break;
+                            case 3:
+                                suffix = "rd";
+                                break;
+
+                            default:
+                                suffix = "th";
+                                break;
+                        }
+                        option.appendChild(document.createTextNode(j.toString() + suffix));
+
+                        select.appendChild(option);
                     }
 
-                    option.appendChild(sup);
-
+                    var option = document.createElement("option");
+                    option.setAttribute("value", 0);
+                    option.appendChild(document.createTextNode("Amber"));
                     select.appendChild(option);
+
+                    var option = document.createElement("option");
+                    option.setAttribute("value", -1);
+                    option.appendChild(document.createTextNode("Demon"));
+                    select.appendChild(option);
+
+                    option = document.createElement("option");
+                    option.setAttribute("value", -2);
+                    option.appendChild(document.createTextNode("Chaos"));
+                    select.appendChild(option);
+
+                    option = document.createElement("option");
+                    option.setAttribute("value", -3);
+                    option.appendChild(document.createTextNode("Hero"));
+                    select.appendChild(option);
+
+                    option = document.createElement("option");
+                    option.setAttribute("value", -4);
+                    option.appendChild(document.createTextNode("Human"));
+                    select.appendChild(option);
+
+                    option = document.createElement("option");
+                    option.setAttribute("value", -10);
+                    option.appendChild(document.createTextNode("Unknown"));
+                    select.appendChild(option);
+
+                    list.appendChild(tr);
                 }
-
-                var option = document.createElement("option");
-                option.setAttribute("value", 0);
-                option.appendChild(document.createTextNode("Amber"));
-                select.appendChild(option);
-
-                var option = document.createElement("option");
-                option.setAttribute("value", -1);
-                option.appendChild(document.createTextNode("Demon"));
-                select.appendChild(option);
-
-                option = document.createElement("option");
-                option.setAttribute("value", -2);
-                option.appendChild(document.createTextNode("Chaos"));
-                select.appendChild(option);
-
-                option = document.createElement("option");
-                option.setAttribute("value", -3);
-                option.appendChild(document.createTextNode("Hero"));
-                select.appendChild(option);
-
-                option = document.createElement("option");
-                option.setAttribute("value", -4);
-                option.appendChild(document.createTextNode("Human"));
-                select.appendChild(option);
-
-                option = document.createElement("option");
-                option.setAttribute("value", -10);
-                option.appendChild(document.createTextNode("Unknown"));
-                select.appendChild(option);
-
-                li.appendChild(select);
-                list.appendChild(li);
             }
+            fillOutList(attrs, list);
+
+            attrs = ["Armies", "Lore", "Renown", "Artifacts", "Lineage"];
+            list = document.getElementById("secondaryAttributes");
+
+            fillOutList(attrs, list);
         </script>
-        <input type="submit" name="Submit" value="Submit">
+        <div id="infoSets">
+            <fieldset id="colorSet">
+                <legend>Colors:</legend>
+                <table>
+                    <tr><td>Main Text Color:</td><td><input type="color" name="mainTextColor" value="#25140E"></td></tr>
+                    <tr><td>Header Text Color:</td><td><input type="color" name="headerTextColor" value="#42653A"></td></tr>
+                    <tr><td>Header Text Shadow Color:</td><td><input type="color" name="headerTextShadowColor" value="#6B5425"></td></tr>
+                    <tr><td>Header Shadow Color:</td><td><input type="color" name="headerShadowColor" value="#1D0C06"></td></tr>
+                    <tr><td>Header Background Color:</td><td><input type="color" name="headerBackgroundColor" value="#F5FFF5"></td></tr>
+                    <tr><td>Attributes Text Color 1:</td><td><input type="color" name="attributesTextColor1" value="#F5FFF5"></td></tr>
+                    <tr><td>Attributes Background Color 1:</td><td><input type="color" name="attributesBackgroundColor1" value="#42653A"></td></tr>
+                    <tr><td>Attributes Text Color 2:</td><td><input type="color" name="attributesTextColor2" value="#F5FFF5"></td></tr>
+                    <tr><td>Attributes Background Color 2:</td><td><input type="color" name="attributesBackgroundColor2" value="#6B5425"></td></tr>
+                    <tr><td>Main Background Color:</td><td><input type="color" name="mainBackgroundColor" value="#F5FFF5"></td></tr>
+                    <tr><td>Footer Text Color:</td><td><input type="color" name="footerTextColor" value="#F5FFF5"></td></tr>
+                    <tr><td>Main Shadow Color:</td><td><input type="color" name="mainShadowColor" value="#1D0C06"></td></tr>
+                </table>
+            </fieldset>
+            <div id="imagesAndBio">
+                <fieldset id="imageSet">
+                    <legend>Images:</legend>
+                    <table>
+                        <tr><td>Background Image:</td><td><input type="file" name="backgroundImage" accept="image/*"></td></tr>
+                        <tr><td>Character Portrait:</td><td><input type="file" name="characterImage" accept="image/*"></td></tr>
+                    </table>
+                </fieldset>
+                <fieldset id="bioSet">
+                    <legend>Bio:</legend>
+                    <textarea name="bio" placeholder="Biographical information about character, publicly known information." required="required" id="bioField">Biographical information about character, publicly known information.</textarea>
+                </fieldset>
+            </div>
+        </div>
+        <p>
+            <input type="submit" name="Submit" value="Submit">
+        </p>
     </form>
 </body>
 </html>
