@@ -4,59 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-GCDWebServer.xcscheme_^#shared#^_</key>
+		<key>Pods-GCDWebServer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-GRMustache.xcscheme_^#shared#^_</key>
+		<key>Pods-GRMustache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JRSwizzle.xcscheme_^#shared#^_</key>
+		<key>Pods-JRSwizzle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-WTAData.xcscheme_^#shared#^_</key>
+		<key>Pods-WTAData.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme_^#shared#^_</key>
+		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>2066A356BE6B5890F4593ECA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3B7985852DD9422D7D0D749E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E2AC9961ECDC4EAE0323F3E3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE3A4FB1A068F51B4A6CE0A5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F22805E835F6D0D3FF6A7D4E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

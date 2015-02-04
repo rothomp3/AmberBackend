@@ -3,4 +3,4 @@ use_frameworks!
 
 pod 'GCDWebServer'
 pod 'GRMustache'
-pod 'WTAData', :path => '../WTAData/'
+pod 'WTAData', :path => './WTAData/'

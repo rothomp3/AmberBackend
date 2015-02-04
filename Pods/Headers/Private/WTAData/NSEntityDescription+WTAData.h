@@ -1,1 +1,1 @@
-../../../../../WTAData/WTAData/categories/NSEntityDescription+WTAData.h
+../../../../WTAData/WTAData/categories/NSEntityDescription+WTAData.h

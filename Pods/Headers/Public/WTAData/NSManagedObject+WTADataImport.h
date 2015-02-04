@@ -1,1 +1,1 @@
-../../../../../WTAData/WTAData/categories/NSManagedObject+WTADataImport.h
+../../../../WTAData/WTAData/categories/NSManagedObject+WTADataImport.h
