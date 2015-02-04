@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AF837CA46020CB985E83D4D"
-               BuildableName = "WTAData.framework"
-               BlueprintName = "Pods-WTAData"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
+               BuildableName = "AmberBackend"
+               BlueprintName = "AmberBackend"
+               ReferencedContainer = "container:AmberBackend.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
+            BuildableName = "AmberBackend"
+            BlueprintName = "AmberBackend"
+            ReferencedContainer = "container:AmberBackend.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,6 +48,16 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
+            BuildableName = "AmberBackend"
+            BlueprintName = "AmberBackend"
+            ReferencedContainer = "container:AmberBackend.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -48,6 +67,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
+            BuildableName = "AmberBackend"
+            BlueprintName = "AmberBackend"
+            ReferencedContainer = "container:AmberBackend.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

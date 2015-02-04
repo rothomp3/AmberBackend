@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
-               BuildableName = "AmberBackend"
-               BlueprintName = "AmberBackend"
-               ReferencedContainer = "container:AmberBackend.xcodeproj">
+               BlueprintIdentifier = "E2AC9961ECDC4EAE0323F3E3"
+               BuildableName = "GRMustache.framework"
+               BlueprintName = "Pods-GRMustache"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
-            BuildableName = "AmberBackend"
-            BlueprintName = "AmberBackend"
-            ReferencedContainer = "container:AmberBackend.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -48,15 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
-            BuildableName = "AmberBackend"
-            BlueprintName = "AmberBackend"
-            ReferencedContainer = "container:AmberBackend.xcodeproj">
+            BlueprintIdentifier = "E2AC9961ECDC4EAE0323F3E3"
+            BuildableName = "GRMustache.framework"
+            BlueprintName = "Pods-GRMustache"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -66,15 +57,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1F6AC881A686447007D4F1A"
-            BuildableName = "AmberBackend"
-            BlueprintName = "AmberBackend"
-            ReferencedContainer = "container:AmberBackend.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
