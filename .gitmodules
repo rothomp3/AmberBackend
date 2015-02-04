@@ -1,0 +1,3 @@
+[submodule "WTAData"]
+	path = WTAData
+	url = git@github.com:WillowTreeApps/WTAData.git
